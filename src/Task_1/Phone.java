@@ -3,86 +3,62 @@ package Task_1;
 
 public class Phone {
 
-    private String model;
-    private double weight;
+
+
     private int number;
-    private String callerName = "Misha";
+    private int model;
+    private int weight;
 
-
-    public static class receiveCall {
-        String name;
-
-         String getName() {
-         return name ;
-        }
-
-        void setName(String name) {
-            name = "Wowa";
-        }
+    public Phone(){
+        super();
     }
 
-//        static void receiveCall(String callerName1) {
-//        callerName1 = "Debil";
-//            System.out.println("Zvonit" + callerName1);
-//
-//    }
-
-    public String getModel() {
-        return model;
-    }
-
-    public void setModel(String model) {
-        this.model = model;
-    }
-
-    public double getWeight() {
-        return weight;
-    }
-
-    public void setWeight(double weight) {
+    public Phone(int number, int model, int weight) {
+        this(number, model);
         this.weight = weight;
     }
 
-    public int getNumber() {
+    public Phone(int number, int model) {
+        this.number = number;
+        this.model = model;
+    }
+
+    public int getNumber(){
         return number;
     }
 
-    public void setNumber(int number) {
+    public void setNumber(int number){
         this.number = number;
     }
 
-    public Phone (String model, int number, double weight){
-   //     super();
-        this(model, number); // вызов конструктора с тремя параметрами конструктор с двумя
-//        this.model = model;
-//        this.number = number;
-        this.weight = weight;
-
+    public int getModel(){
+        return model;
     }
-    public Phone (String model, int number) {
-        super();
+
+    public void setModel(int model){
         this.model = model;
-        this.number = number;
-    }
-    public Phone () {
-
-    }
-    public static void main(String[] args) {
-        Phone ph1 = new Phone("Siemens", 60, 5);
-        Phone ph2 = new Phone("Nokia", 3310, 10);
-        Phone ph3 = new Phone("HTC", 0, 1.5);
-
-     //  ph1.setModel("RAINBOW");
-     //   ph1.setCaller("LOH");
-        receiveCall rc = new receiveCall();
-        rc.name = "Имя";
-
-
-        System.out.println(ph1.model + " " + ph1.number + " " + ph1.weight);
-        System.out.println(ph2.model + " " + ph2.number + " " + ph2.weight);
-        System.out.println(ph3.model + " " + ph3.number + " " + ph3.weight);
-        System.out.println(ph1.model + " " + rc.name );
     }
 
+    public int getWeight(){
+        return weight;
+    }
+
+    public void setWeight(int weight){
+        this.weight = weight;
+    }
+
+    public void receiveCall(String name){
+        System.out.println(name + " is calling.");
+    }
+
+    public static void receiveCall(String name, int number){
+        System.out.println(name + " " + number + " is calling.");
+    }
+
+    public static void sendMessage(int...ph){
+        for(int i = 0; i < ph.length; i++){
+            System.out.print(ph[i] + " ");
+        }
+    }
 }
 
