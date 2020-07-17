@@ -1,52 +1,75 @@
 package Task_3;
 
-import java.util.Arrays;
+public class Matrix {
+    private double[][] mtrx;
+    private int lines;
+    private int columns;
 
-public class Matrix{
-
-//    int[][] myArray = {{18,28,18},{28,45,90},{45,3,14}};
-//    System.out.printLn(Arrays.deepToString(myArray));
-
-    int [][] myArray = {{5,7,3,17}, {7,0,1,12}}; //объявили массив и заполнили его элементами
-
-    {
-
-        for (int i = 0; i < 2; i++) {  //идём по строкам
-            for (int j = 0; j < 4; j++) {//идём по столбцам
-                System.out.print(" " + myArray[i][j] + " "); //вывод элемента
-            }
-            System.out.println();//перенос строки ради визуального сохранения табличной формы
-        }
+    public Matrix(){
+        super();
     }
-    public static class MatrixMulty{ // умножение матриц
 
-        int [][] twoDimArray1 = {{1,0,0,0},{0,1,0,0},{0,0,0,0}};
-        int[][] twoDimArray2 = {{1,2,3},{1,1,1},{0,0,0},{2,1,0}};
+    public Matrix(double[][] mtrx, int lines, int columns){
+        this.columns = columns;
+        this.mtrx = mtrx;
+        this.lines = lines;
+    }
 
-        //процесс умножения матриц
-        int[][]twoDimArray3 = new int [twoDimArray1.length][twoDimArray2[0].length];{
-        for (int i=0; i<twoDimArray3[0].length; i++){
-                for (int j=0; j<twoDimArray3.length; j++){
-                    int k;
-                    for (k=0; k<twoDimArray1[0].length; k++) {
-                    twoDimArray3[i][j] = twoDimArray3[i][j] + twoDimArray1[i][k] * twoDimArray2[k][j];
-                }}}
+    public void setMtrx(double[][] mtrx){
+        this.mtrx = mtrx;
+    }
 
-        for (int i = 0; i < twoDimArray3.length; i++) { //вывод на экран
-            for (int j = 0; j < twoDimArray3[0].length; j++) {
-                System.out.print(" " + twoDimArray3[i][j] + " ");
+    public double[][] getMtrx() {
+        return mtrx;
+    }
+
+    public int getLines(){
+        return lines;
+    }
+
+    public void setLines(int lines) {
+        this.lines = lines;
+    }
+
+    public void setColumns(int columns){
+        this.columns = columns;
+    }
+
+    public int getColumns(){
+        return columns;
+    }
+
+    public void showMatrix(){
+        System.out.println();
+        System.out.println("matrix ");
+        for(int i = 0; i < mtrx.length; i++){
+            for(int j = 0; j < mtrx[i].length; j++){
+                System.out.print(mtrx[i][j] + " ");
             }
             System.out.println();
         }
-    }}
-    public static void main(String[] args) {
-        Matrix neo = new Matrix();
-
-        System.out.println("++++++++++++++++++++++");
-        MatrixMulty z = new MatrixMulty();
-
-        System.out.println("++++++++++++++++++++++");
-        System.out.println(neo.myArray.length);
-
     }
+
+    public static void addition(Matrix matr1, Matrix matr2){
+        System.out.println();
+        System.out.println("addition: ");
+        for(int i = 0; i < matr1.getLines(); i++){
+            for(int j = 0; j < matr1.getColumns(); j++){
+                System.out.print((matr1.mtrx[i][j] + matr2.mtrx[i][j]) + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    public void multiplication(int a){
+        System.out.println();
+        System.out.println("multiplication by " + a);
+        for(int i = 0; i < mtrx.length; i++){
+            for(int j = 0; j < mtrx[i].length; j++){
+                System.out.print((mtrx[i][j] * a) + " ");
+            }
+            System.out.println();
+        }
+    }
+
 }
